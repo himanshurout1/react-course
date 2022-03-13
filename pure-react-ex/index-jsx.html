@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla React Example</title>
+</head>
+<body>
+    <div id="root">Loading content</div>
+
+    <!-- <div id="root">
+        <div id="wrapper" class="wrapper">
+            <h1 class="header">App Header</h1>
+            
+        </div>
+    </div> -->
+   
+    <script src="https://unpkg.com/react@17.0.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        let employee = {
+            name: "Anto",
+            city: "Chennai"
+        };
+
+        function getCity(empObj) {
+            return empObj.city.toUpperCase();
+        }
+        function App() {
+            return (
+                <div id="wrapper" className="wrapper">
+                    <h1 className="header">App Header</h1>
+                    <p>{employee.name} is from {getCity(employee)}</p>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App/>, document.getElementById("root"));
+    </script>
+</body>
+</html>
