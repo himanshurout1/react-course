@@ -1,4 +1,5 @@
 
+import { useState } from 'react';
 import './App.css';
 import AppHeader from './AppHeader';
 import AppLogo from './AppLogo';
@@ -9,6 +10,14 @@ import EmployeeList from './EmployeeList';
 
 function App(props) {
   console.log("props", props);
+
+  const [empObjList, setEmpObjList] = useState([]);
+
+  function updateEmpList(newList) {
+    console.log("***", newList);
+    setEmpObjList(newList);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,11 +27,11 @@ function App(props) {
       </header>
       <div className='emp-container'>
         <div className="row">
-          <div className="col-md-6 col-sm-12">
-            <EmployeeList />
+          <div className="col-md-6 col-sm-12 left-section">
+            <EmployeeList employees={empObjList} />
           </div>
-          <div className="col-md-6 col-sm-12">
-            <EmployeeDetails />
+          <div className="col-md-6 col-sm-12 right-section">
+            <EmployeeDetails onEmployeeListChange={updateEmpList} />
           </div>
         </div>
       </div>
