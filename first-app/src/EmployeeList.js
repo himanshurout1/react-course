@@ -14,6 +14,10 @@ function EmployeeList(props) {
                             <div>{emp.address}</div>
                             <div>{emp.city}</div>
                             <div>{emp.accType}</div>
+                            <div>
+                                <button type='button' onClick={() => props.onEmployeeEdit(emp)}>Edit</button>
+                                <button type='button'>Delete</button>
+                            </div>
                         </div>
                     )
                 }
