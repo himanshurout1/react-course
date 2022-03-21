@@ -1,7 +1,0 @@
-{
-    "users": [
-        {"name": "User 1", "email": "u1@gmail.com", "address": "729 Parkway Ave", "city": "Chennai"},
-        {"name": "User 2", "email": "u2@gmail.com", "address": "123 Parkway Ave", "city": "Hyd"},
-        {"name": "User 3", "email": "u3@gmail.com", "address": "7666 Parkway Ave", "city": "Mumbai"}
-    ]
-}
