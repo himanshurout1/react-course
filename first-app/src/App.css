@@ -48,6 +48,11 @@
   margin-bottom: 5px;
 }
 
+ul li.menu-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 
 @keyframes App-logo-spin {
   from {

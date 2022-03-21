@@ -1,80 +1,66 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import EmployeeContainer from './EmployeeContainer';
 import './App.css';
 import AppHeader from './AppHeader';
-import AppLogo from './AppLogo';
-import EmployeeDetails from './EmployeeDetails';
-import EmployeeList from './EmployeeList';
-import FnTimer from './FnTimer';
-import Timer from './Timer';
-import UserDetails from './UserDetails';
-import UserList from './UserList';
 
-//var x = age>60? "senior": "junior"
+import HooksContainer from './HooksContainer';
+import UserContainer from './UserContainer';
+import { BrowserRouter, HashRouter, Link, Route, Routes } from 'react-router-dom';
+import UserList from './UserList';
+import UserDetails from './UserDetails';
+
 
 function App(props) {
   console.log("props", props);
 
-  const [empObjList, setEmpObjList] = useState([]);
-  const [editEmpObj, setEditEmpObj] = useState({});
-  const [showTimer, setShowTimer] = useState(true);
+  const menuItems = [
+    { key: "employees", "displayName": "Employees" },
+    { key: "users/all", "displayName": "Users" },
+    { key: "hooks", "displayName": "Comp Hooks" }
+  ];
 
-  function updateEmpList(newList) {
-    console.log("***", newList);
-    setEmpObjList(newList);
-  }
-
-  function onEmpEdit(editObj) {
-    console.log("Emp object for edit", editObj);
-    setEditEmpObj(editObj);
-  }
 
   return (
     <div className="App">
       <header className="App-header">
-        {/* <AppLogo /> */}
         <AppHeader show={props.showHeader} app={props.appName} />
 
       </header>
-      <div className='emp-container' style={{ display: 'none' }}>
-        <div className="row">
-          <div className="col-md-6 col-sm-12 left-section">
-            <EmployeeList employees={empObjList} onEmployeeEdit={onEmpEdit} />
-          </div>
-          <div className="col-md-6 col-sm-12 right-section">
-            <EmployeeDetails onEmployeeListChange={updateEmpList} editObj={editEmpObj} />
-          </div>
-        </div>
-      </div>
 
-      <div className='emp-container' style={{ display: 'none' }}>
-        <div className="row">
-          <div className="col-md-6 col-sm-12 left-section">
-            <UserList />
-          </div>
-          <div className="col-md-6 col-sm-12 right-section">
-            <UserDetails />
-          </div>
-        </div>
-      </div>
 
-      <div className='emp-container'>
-        <button type="button" onClick={()=>setShowTimer(!showTimer)}>Show/Hide Timer</button>
-        <div>
-          Class based timer component:
+      <HashRouter>
+        <ul>
           {
-            showTimer && <Timer />
+            menuItems.map((menu) =>
+              <li className='menu-item'>
+                <Link to={'/' + menu.key}>{menu.displayName}</Link>
+                {/* <a href={'/'+menu.key}>{menu.displayName}</a> */}
+              </li>
+            )
           }
-        </div>
-        <div>
-          Function based timer component:
-          {
-            showTimer && <FnTimer />
-          }
-        </div>
-        
-        
-      </div>
+        </ul>
+        <Routes>
+          <Route path='/employees' element={<EmployeeContainer />} />
+          <Route path='/users' element={<UserContainer />}>
+            <Route path='all' element={<UserList />} />
+            <Route path='new' element={<UserDetails />} />
+            <Route path=':id' element={<UserDetails />} />
+          </Route>
+          <Route path='/hooks' element={<HooksContainer />} />
+          <Route path='/' element={<EmployeeContainer />} />
+        </Routes>
+
+        {/* <Swicth>
+          <Route path='/employees'>
+            <EmployeeContainer />
+          </Route>
+          <Route path='/users'>
+            <UserContainer />
+          </Route>
+        </Swicth> */}
+      </HashRouter>
+
     </div>
   );
 }

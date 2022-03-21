@@ -15,7 +15,10 @@ function UserList(props) {
 
     return (
         <div>
-            <div>Number of users: {users.length}</div>
+            <div>
+                Number of users: {users.length}
+                <a href='#/users/new' style={{marginLeft: '20px'}}>New User</a>
+            </div>
             <div>
                 <table class="table">
                     <thead>
@@ -36,6 +39,9 @@ function UserList(props) {
                                     <td>{user.email}</td>
                                     <td>{user.address.street}</td>
                                     <td>{user.address.city}</td>
+                                    <td>
+                                        <a href={'#/users/' + user.name} style={{marginLeft: '20px'}}>Edit</a>
+                                    </td>
                                 </tr>
                             )
                         }
