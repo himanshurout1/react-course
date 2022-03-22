@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/react-course/first-app/build/static/css/main.900070b4.css",
+    "main.js": "/react-course/first-app/build/static/js/main.e499efbd.js",
+    "static/js/686.0f49e3d7.chunk.js": "/react-course/first-app/build/static/js/686.0f49e3d7.chunk.js",
+    "static/js/286.3aad35a3.chunk.js": "/react-course/first-app/build/static/js/286.3aad35a3.chunk.js",
+    "static/js/782.1b5ae7d9.chunk.js": "/react-course/first-app/build/static/js/782.1b5ae7d9.chunk.js",
+    "static/js/380.ee511197.chunk.js": "/react-course/first-app/build/static/js/380.ee511197.chunk.js",
+    "static/js/403.e9e6c419.chunk.js": "/react-course/first-app/build/static/js/403.e9e6c419.chunk.js",
+    "static/js/950.e7db347f.chunk.js": "/react-course/first-app/build/static/js/950.e7db347f.chunk.js",
+    "static/js/787.f3d7924f.chunk.js": "/react-course/first-app/build/static/js/787.f3d7924f.chunk.js",
+    "index.html": "/react-course/first-app/build/index.html",
+    "main.900070b4.css.map": "/react-course/first-app/build/static/css/main.900070b4.css.map",
+    "main.e499efbd.js.map": "/react-course/first-app/build/static/js/main.e499efbd.js.map",
+    "686.0f49e3d7.chunk.js.map": "/react-course/first-app/build/static/js/686.0f49e3d7.chunk.js.map",
+    "286.3aad35a3.chunk.js.map": "/react-course/first-app/build/static/js/286.3aad35a3.chunk.js.map",
+    "782.1b5ae7d9.chunk.js.map": "/react-course/first-app/build/static/js/782.1b5ae7d9.chunk.js.map",
+    "380.ee511197.chunk.js.map": "/react-course/first-app/build/static/js/380.ee511197.chunk.js.map",
+    "403.e9e6c419.chunk.js.map": "/react-course/first-app/build/static/js/403.e9e6c419.chunk.js.map",
+    "950.e7db347f.chunk.js.map": "/react-course/first-app/build/static/js/950.e7db347f.chunk.js.map",
+    "787.f3d7924f.chunk.js.map": "/react-course/first-app/build/static/js/787.f3d7924f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.900070b4.css",
+    "static/js/main.e499efbd.js"
+  ]
+}
