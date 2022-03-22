@@ -1,14 +1,21 @@
 
-import { useEffect, useState } from 'react';
-import EmployeeContainer from './EmployeeContainer';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import AppHeader from './AppHeader';
 
-import HooksContainer from './HooksContainer';
-import UserContainer from './UserContainer';
 import { BrowserRouter, HashRouter, Link, Route, Routes } from 'react-router-dom';
-import UserList from './UserList';
-import UserDetails from './UserDetails';
+// import EmployeeContainer from './EmployeeContainer';
+// import HooksContainer from './HooksContainer';
+// import UserContainer from './UserContainer';
+// import UserDetails from './UserDetails';
+// import UserList from './UserList';
+// import NonExistentRoute from './NonExistentRoute';
+const EmployeeContainer = React.lazy(() => import("./EmployeeContainer"));
+const HooksContainer = React.lazy(() => import("./HooksContainer"));
+const UserContainer = React.lazy(() => import("./UserContainer"));
+const UserDetails = React.lazy(() => import("./UserDetails"));
+const UserList = React.lazy(() => import("./UserList"));
+const NonExistentRoute = React.lazy(() => import("./NonExistentRoute"));
 
 
 function App(props) {
@@ -16,7 +23,7 @@ function App(props) {
 
   const menuItems = [
     { key: "employees", "displayName": "Employees" },
-    { key: "users/all", "displayName": "Users" },
+    { key: "users", "displayName": "Users" },
     { key: "hooks", "displayName": "Comp Hooks" }
   ];
 
@@ -29,7 +36,7 @@ function App(props) {
       </header>
 
 
-      <HashRouter>
+      <BrowserRouter>
         <ul>
           {
             menuItems.map((menu) =>
@@ -41,14 +48,65 @@ function App(props) {
           }
         </ul>
         <Routes>
-          <Route path='/employees' element={<EmployeeContainer />} />
-          <Route path='/users' element={<UserContainer />}>
+          {/* <Route path='employees' element={<EmployeeContainer />} />
+          <Route path='hooks' element={<HooksContainer />} />
+          <Route path='users' element={<UserContainer />}>
             <Route path='all' element={<UserList />} />
             <Route path='new' element={<UserDetails />} />
             <Route path=':id' element={<UserDetails />} />
+            <Route index element={<UserList />} />
           </Route>
-          <Route path='/hooks' element={<HooksContainer />} />
-          <Route path='/' element={<EmployeeContainer />} />
+          <Route index element={<EmployeeContainer />} />
+          <Route path='*' element={<NonExistentRoute />} /> */}
+
+
+          <Route path='employees' element={
+            <React.Suspense fallback={<h2>Loading...</h2>}>
+              <EmployeeContainer />
+            </React.Suspense>
+          } />
+          
+          <Route path='dashboard' element={
+            <React.Suspense fallback={<h2>Loading...</h2>}>
+              <HooksContainer />
+            </React.Suspense>
+          } />
+
+          <Route path='users' element={
+            <React.Suspense fallback={<h2>Loading...</h2>}>
+              <UserContainer />
+            </React.Suspense>
+          }>
+            <Route path='new' element={
+              <React.Suspense fallback={<h2>Loading...</h2>}>
+                <UserDetails />
+              </React.Suspense>
+            } />
+            <Route path=':id' element={
+              <React.Suspense fallback={<h2>Loading...</h2>}>
+                <UserDetails />
+              </React.Suspense>
+            } />
+             <Route index element={
+              <React.Suspense fallback={<h2>Loading...</h2>}>
+                <UserList />
+              </React.Suspense>
+            } />
+          </Route>
+          
+          
+          <Route index element={
+            <React.Suspense fallback={<h2>Loading...</h2>}>
+              <EmployeeContainer />
+            </React.Suspense>
+          } />
+
+          <Route path='*' element={
+            <React.Suspense fallback={<h2>Loading...</h2>}>
+              <NonExistentRoute />
+            </React.Suspense>
+          } />
+          
         </Routes>
 
         {/* <Swicth>
@@ -59,7 +117,7 @@ function App(props) {
             <UserContainer />
           </Route>
         </Swicth> */}
-      </HashRouter>
+      </BrowserRouter>
 
     </div>
   );

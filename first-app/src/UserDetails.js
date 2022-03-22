@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { insertUser } from "./apis/userAPI";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { getUserById, insertUser } from "./apis/userAPI";
 
 function UserDetails(props) {
 
@@ -9,6 +10,22 @@ function UserDetails(props) {
     const [city, updateCity] = useState("");
     const [accType, updateAccType] = useState("savings");
     const [userId, setUserId] = useState(11);
+
+    const navigate = useNavigate();
+
+    const routeParams = useParams();
+
+    useEffect(() => {
+        if (routeParams.id) {
+            getUserById(routeParams.id)
+            .then((response) => response.json())
+            .then((userDetails) => { 
+                console.log(userDetails);
+                updateName(userDetails.name);
+                updateEmail(userDetails.email);
+            });
+        }
+    }, [routeParams.id]);
 
 
     function addUser() {
@@ -29,6 +46,7 @@ function UserDetails(props) {
                 setUserId(userId + 1);
                 resetForm();
                 alert("user added successfully");
+                navigate("/users");
             });
     }
 
@@ -124,7 +142,12 @@ function UserDetails(props) {
                 <div className="row">
                     <div className="col-3"></div>
                     <div className="col-9">
-                        <button type="button" className="btn btn-primary" onClick={addUser}>Add</button>
+                        {
+                            !routeParams.id && <button type="button" className="btn btn-primary" onClick={addUser}>Add</button>
+                        }
+                        {
+                            routeParams.id && <button type="button" className="btn btn-primary">Update</button>
+                        }
                     </div>
                 </div>
             </form>

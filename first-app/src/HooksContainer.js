@@ -1,9 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import FnTimer from './FnTimer';
 import Timer from './Timer';
 
 function HooksContainer() {
     const [showTimer, setShowTimer] = useState(true);
+
+    useEffect(() => {
+        setTimeout(()=> {
+            console.log("test")
+        }, 1000);
+    }, [])
     return (
         <div className='emp-container'>
             <button type="button" onClick={() => setShowTimer(!showTimer)}>Show/Hide Timer</button>

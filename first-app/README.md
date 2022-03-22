@@ -68,3 +68,40 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Assignment
+- use lazy loaded routes
+- registration page (/registration)
+    - name
+    - email
+    - phone
+    - username
+    - password
+
+    - Submit Btn -> store in local storage userList
+
+- login page (/login)
+    - username
+    - password
+
+    - Login Btn -> if matching username and pwd found in local storage userList
+                    -> store a token (isLoggedIn = true) & user details  in sessionStorage
+                    -> redirect to dashboard component
+                -> if not found show error message (use bootstrap)
+
+- dashboad (/dashboard)
+    - show logged in user details
+    - show logout button
+    - On logout click
+        -> remove isLoggedIn & userDetails from sessionStorage
+        -> redirect to login
+
+
+- if user is not logged and goes to dasboard, redirect back to login page (Control at route level)
+- if user is logged in and goes to login / registration, redirect back to dasboard page
+
+localStorage/sessionStorage
+    ->setItem("key", "value")
+    ->getItem("key")
+    ->removeItem("key")

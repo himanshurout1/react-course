@@ -10,6 +10,15 @@ export const getUsers = () => {
     });
 }
 
+export const getUserById = (id) => {
+    return fetch(baseUserUrl + "/" + id, {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    });
+}
+
 export const insertUser = (newUserObj) => {
     return fetch(baseUserUrl, {
         method: 'POST',
