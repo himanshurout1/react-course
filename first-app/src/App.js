@@ -36,7 +36,7 @@ function App(props) {
       </header>
 
 
-      <BrowserRouter>
+      <HashRouter>
         <ul>
           {
             menuItems.map((menu) =>
@@ -66,7 +66,7 @@ function App(props) {
             </React.Suspense>
           } />
           
-          <Route path='dashboard' element={
+          <Route path='hooks' element={
             <React.Suspense fallback={<h2>Loading...</h2>}>
               <HooksContainer />
             </React.Suspense>
@@ -117,7 +117,7 @@ function App(props) {
             <UserContainer />
           </Route>
         </Swicth> */}
-      </BrowserRouter>
+      </HashRouter>
 
     </div>
   );
