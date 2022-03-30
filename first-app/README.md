@@ -105,3 +105,23 @@ localStorage/sessionStorage
     ->setItem("key", "value")
     ->getItem("key")
     ->removeItem("key")
+
+
+Home
+    - CRUD
+    - AUTH
+    - 
+
+
+- /crud
+- /auth
+    - /auth/login
+    - /auth/rgistration
+
+
+----------------------
+
+- Context
+- Error Boundaries
+- Fragment
+- React using Typescript

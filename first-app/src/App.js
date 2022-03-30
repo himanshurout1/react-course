@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import AppHeader from './AppHeader';
 
-import { BrowserRouter, HashRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Link, Outlet, Route, Routes } from 'react-router-dom';
+
 // import EmployeeContainer from './EmployeeContainer';
 // import HooksContainer from './HooksContainer';
 // import UserContainer from './UserContainer';
@@ -16,6 +17,9 @@ const UserContainer = React.lazy(() => import("./UserContainer"));
 const UserDetails = React.lazy(() => import("./UserDetails"));
 const UserList = React.lazy(() => import("./UserList"));
 const NonExistentRoute = React.lazy(() => import("./NonExistentRoute"));
+const ContextEx = React.lazy(() => import("./context/ContextEx"));
+const ErrorHandler = React.lazy(() => import("./error-handling/ErrorHandler"));
+const FargmentEx = React.lazy(() => import("./fragments/FargmentEx"));
 
 
 function App(props) {
@@ -65,7 +69,7 @@ function App(props) {
               <EmployeeContainer />
             </React.Suspense>
           } />
-          
+
           <Route path='hooks' element={
             <React.Suspense fallback={<h2>Loading...</h2>}>
               <HooksContainer />
@@ -87,14 +91,42 @@ function App(props) {
                 <UserDetails />
               </React.Suspense>
             } />
-             <Route index element={
+            <Route index element={
               <React.Suspense fallback={<h2>Loading...</h2>}>
                 <UserList />
               </React.Suspense>
             } />
           </Route>
-          
-          
+
+          <Route path='concepts' element={
+            <React.Suspense fallback={<h2>Loading...</h2>}>
+              <Link to='/concepts/context'>Context</Link> { }
+              <Link to='/concepts/handler'>Error Boundary</Link>
+              <Link to='/concepts/fragments'>Fragments</Link>
+              <Outlet />
+            </React.Suspense>
+          }>
+            <Route path='context' element={
+              <React.Suspense fallback={<h2>Loading...</h2>}>
+                <ContextEx />
+              </React.Suspense>
+            } />
+
+            <Route path='handler' element={
+              <React.Suspense fallback={<h2>Loading...</h2>}>
+                <ErrorHandler />
+              </React.Suspense>
+            } />
+
+            <Route path='fragments' element={
+              <React.Suspense fallback={<h2>Loading...</h2>}>
+                <FargmentEx />
+              </React.Suspense>
+            } />
+
+          </Route>
+
+
           <Route index element={
             <React.Suspense fallback={<h2>Loading...</h2>}>
               <EmployeeContainer />
@@ -106,7 +138,7 @@ function App(props) {
               <NonExistentRoute />
             </React.Suspense>
           } />
-          
+
         </Routes>
 
         {/* <Swicth>
