@@ -44,3 +44,21 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+To Cover:
+- Forwarding Refs
+- Flexbox
+
+
+- Parent -> Child
+    - props
+    - Ref
+- Child -> Parent
+- Child -> Child (Same Parent)
+- Random Comp1 -> Random Comp2
+
+
+Assignment:
+
+Todo List usign rxjs
+https://jsonplaceholder.typicode.com/todos
