@@ -9,6 +9,7 @@ import RefExCallback from './refs/RefExCallback';
 import Product from './rxjs/Product';
 import ProductList from './rxjs/ProductList';
 import Dashboard from './rxjs/Dashboard';
+import ContainerComp from './redux/ContainerComp';
 
 function App() {
   const name: string = "App name";
@@ -30,7 +31,7 @@ function App() {
         </div>
       </div>
 
-      <div className='row'>
+      <div className='row' style={{display:'none'}}>
         <div className='col-6'>
           <Product/>
         </div>
@@ -38,6 +39,10 @@ function App() {
           <ProductList />
           <Dashboard />
         </div>
+      </div>
+
+      <div>
+        <ContainerComp />
       </div>
       
     </div>

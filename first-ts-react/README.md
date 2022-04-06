@@ -62,3 +62,8 @@ Assignment:
 
 Todo List usign rxjs
 https://jsonplaceholder.typicode.com/todos
+
+
+## React-redux
+
+npm install @reduxjs/toolkit react-redux  @types/react-redux
