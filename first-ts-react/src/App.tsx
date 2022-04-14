@@ -10,11 +10,17 @@ import Product from './rxjs/Product';
 import ProductList from './rxjs/ProductList';
 import Dashboard from './rxjs/Dashboard';
 import ContainerComp from './redux/ContainerComp';
+import TestForm from './unit-test/TestForm';
 
 function App() {
   const name: string = "App name";
   return (
     <div className="App">
+      {/* <h2>{name}</h2>
+      <TestForm />
+      <hr/>
+      <TestForm val='Parent Default' />
+      <hr/> */}
       <div style={{display: "none"}}>
         <HocContainer />
         <RefEx />

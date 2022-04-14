@@ -67,3 +67,13 @@ https://jsonplaceholder.typicode.com/todos
 ## React-redux
 
 npm install @reduxjs/toolkit react-redux  @types/react-redux
+
+
+npm install --save-dev @testing-library/react@latest
+
+npm install --save-dev @testing-library/jest-dom@latest
+
+npm install --save-dev @testing-library/user-event@latest
+
+
+npm test -- --coverage 
